@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>陳鈺諠 個人簡歷</title>
+    <title>陳鈺諠的個人網站 | 關於我・讀書計畫・作品集</title>
     <style>
-        /* 色彩變數：霓虹紫與黑 */
+        /* 全域設定與黑紫霓虹配色 */
         :root {
-            --bg-color: #050505;
-            --text-color: #f0f0f0;
             --neon-purple: #b026ff;
-            --neon-purple-glow: rgba(176, 38, 255, 0.4);
-            --highlight-color: #ff2a9d; /* 用於模擬原圖的紅色強調字，改用霓虹粉以搭配黑底 */
-            --box-bg: #111111;
+            --bg-black: #050505;
+            --text-light: #e0e0e0;
         }
 
         * {
@@ -23,25 +20,23 @@
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* 平滑滾動效果 */
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.8;
-            padding-top: 70px; /* 給浮動選單留空間 */
+            background-color: var(--bg-black);
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
         /* 浮動式導覽列 */
         nav {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            background-color: rgba(5, 5, 5, 0.95);
+            background: rgba(5, 5, 5, 0.9);
             border-bottom: 2px solid var(--neon-purple);
-            box-shadow: 0 0 15px var(--neon-purple-glow);
+            box-shadow: 0 0 15px var(--neon-purple);
             z-index: 1000;
             display: flex;
             justify-content: center;
@@ -49,161 +44,121 @@
         }
 
         nav a {
-            color: var(--text-color);
+            color: white;
             text-decoration: none;
             margin: 0 20px;
             font-size: 1.1rem;
             font-weight: bold;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         nav a:hover {
             color: var(--neon-purple);
+            text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+        }
+
+        /* 頁面區塊共用設定 */
+        section {
+            min-height: 100vh;
+            padding: 100px 20px 50px; /* 留出上方導覽列空間 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
             text-shadow: 0 0 10px var(--neon-purple);
         }
 
-        /* 履歷整體容器 */
-        .resume-wrapper {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        /* 頁面主標題 */
-        .main-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: bold;
-            letter-spacing: 5px;
-            margin-bottom: 30px;
-            color: white;
-            text-shadow: 0 0 15px var(--neon-purple), 0 0 30px var(--neon-purple);
-        }
-
-        /* 雙欄排版容器 */
-        .grid-container {
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-        }
-
-        /* ＝＝＝ 左欄：關於我 (參考原圖左側外框) ＝＝＝ */
-        .left-column {
-            flex: 1;
-            border: 2px solid var(--neon-purple);
-            box-shadow: 0 0 15px var(--neon-purple-glow);
-            padding: 30px 20px;
-            background-color: var(--box-bg);
-            position: relative;
-        }
-
-        .profile-pic {
-            width: 180px;
-            height: 180px;
-            background-color: #333; /* 照片佔位符 */
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            border: 3px solid var(--neon-purple);
-            box-shadow: 0 0 10px var(--neon-purple-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-        }
-
-        .name-box {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--neon-purple);
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--neon-purple);
             padding-bottom: 10px;
-            letter-spacing: 10px;
-            text-indent: 10px; /* 平衡 letter-spacing */
+            display: inline-block;
         }
 
-        .info-list {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .info-list li {
-            margin-bottom: 10px;
-            font-size: 1.05rem;
-        }
-
-        /* ＝＝＝ 右欄：作品集、計畫 (參考原圖右側區塊) ＝＝＝ */
-        .right-column {
-            flex: 1.2;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        /* 區塊標題 (參考原圖的灰色底標題，改為霓虹紫底) */
-        .section-title {
-            background-color: rgba(176, 38, 255, 0.15);
-            color: white;
-            text-align: center;
-            font-size: 1.4rem;
-            font-weight: bold;
-            padding: 8px 0;
-            border: 1px solid var(--neon-purple);
-            border-radius: 5px;
-            margin-bottom: 15px;
-            box-shadow: inset 0 0 10px var(--neon-purple-glow);
-        }
-
-        .bullet-list {
-            list-style: none;
-            padding-left: 10px;
-        }
-
-        .bullet-list li {
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 25px;
+        p {
             font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: justify;
         }
 
-        .bullet-list li::before {
-            content: '●';
+        /* 關於我 */
+        .profile-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid var(--neon-purple);
+            box-shadow: 0 0 20px rgba(176, 38, 255, 0.2);
+            width: 100%;
+        }
+
+        /* 卡片式排版 (參考履歷分類) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--neon-purple);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(176, 38, 255, 0.4);
+        }
+
+        .card h3 {
+            color: var(--neon-purple);
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        ul li::before {
+            content: '✦';
             color: var(--neon-purple);
             position: absolute;
             left: 0;
-            top: 0;
         }
 
-        /* 強調文字 (模擬原圖中的紅字，改為霓虹粉) */
-        .highlight {
-            color: var(--highlight-color);
-            font-weight: bold;
-            text-shadow: 0 0 5px rgba(255, 42, 157, 0.5);
-        }
-
-        /* 頁尾 */
-        .footer-note {
+        footer {
             text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid var(--neon-purple);
             margin-top: 50px;
-            font-size: 1.1rem;
-            color: #aaa;
-            letter-spacing: 2px;
         }
 
-        /* RWD 響應式：手機版改為單欄上下排列 */
+        /* 響應式手機排版調整 */
         @media (max-width: 768px) {
-            .grid-container {
-                flex-direction: column;
-            }
-            .left-column, .right-column {
-                width: 100%;
-            }
-            .main-title {
-                font-size: 2.2rem;
-            }
             nav a {
                 margin: 0 10px;
                 font-size: 1rem;
+            }
+            .profile-container {
+                padding: 20px;
             }
         }
     </style>
@@ -213,70 +168,79 @@
     <!-- 浮動式選單 -->
     <nav>
         <a href="#about">關於我</a>
-        <a href="#portfolio">作品集與經歷</a>
         <a href="#study-plan">讀書計畫</a>
+        <a href="#portfolio">作品集與經歷</a>
     </nav>
 
-    <div class="resume-wrapper">
-        <h1 class="main-title">個人簡歷</h1>
+    <!-- 關於我 -->
+    <section id="about">
+        <div class="profile-container">
+            <h1>陳鈺諠</h1>
+            <p style="color: var(--neon-purple); font-weight: bold; font-size: 1.3rem;">新北市立三重商工｜資料處理科</p>
+            <p>你好！我是陳鈺諠。在高中生活裡，我積極參與各種活動，曾於高一上學期擔任副班長，同時也是服務隊及科聯的成員。我充滿熱情，興趣非常廣泛，只要是有趣的事物，我都喜歡去嘗試、去學習！期望能在資料處理與多元學習中找到屬於自己的舞台。</p>
+        </div>
+    </section>
 
+    <!-- 讀書計畫 (先填充佔位內容) -->
+    <section id="study-plan">
+        <h2>讀書計畫</h2>
         <div class="grid-container">
-            
-            <!-- 左欄 (對應導覽：關於我) -->
-            <div class="left-column" id="about">
-                <div class="profile-pic">
-                    (放置照片)
-                </div>
-                <div class="name-box">
-                    陳鈺諠
-                </div>
-                
-                <ul class="info-list">
-                    <li>學校：新北市立三重商工</li>
-                    <li>科系：資料處理科</li>
-                    <li>幹部：高一上學期 副班長</li>
-                    <li>經歷：服務隊、科聯會人員</li>
-                    <li>特質：興趣很多，只要有趣的事物我都喜歡嘗試與學習！</li>
-                </ul>
-
-                <!-- 左欄下方的檢定證照區塊 -->
-                <div class="section-title">檢定證照</div>
-                <ul class="bullet-list">
-                    <li>會資人工記帳：<span class="highlight">丙級</span></li>
-                    <li>(可在此擴充其他資訊與證照)</li>
-                </ul>
+            <div class="card">
+                <h3>短期目標 (高職階段)</h3>
+                <p>1. 穩固資料處理科的專業科目基礎，提升程式邏輯與實作能力。<br>
+                   2. 持續報考相關專業證照，累積實力。<br>
+                   3. 兼顧課業與社團/科聯活動，培養領導與團隊合作精神。</p>
             </div>
-
-            <!-- 右欄 -->
-            <div class="right-column">
-                
-                <!-- 對應導覽：作品集與經歷 -->
-                <div id="portfolio">
-                    <div class="section-title">特殊優良表現</div>
-                    <ul class="bullet-list">
-                        <li>高一書法寫字比賽 <span class="highlight">第一名</span></li>
-                        <li>資安女傑思 <span class="highlight">佳作</span></li>
-                        <li>參加閱讀心得競賽</li>
-                    </ul>
-                </div>
-
-                <!-- 對應導覽：讀書計畫 -->
-                <div id="study-plan" style="margin-top: 20px;">
-                    <div class="section-title">讀書計畫</div>
-                    <ul class="bullet-list">
-                        <li><span class="highlight">短期目標</span>：<br>紮實學習資料處理科專業知識，準備並考取更多相關軟體應用與檢定證照。</li>
-                        <li><span class="highlight">中期目標</span>：<br>兼顧課業與科聯會、服務隊活動。積極參與各項競賽（如資安、企劃或閱讀心得），豐富學習歷程檔案。</li>
-                        <li><span class="highlight">長期目標</span>：<br>統測爭取優異成績，考取理想的科技大學資訊相關科系，成為具備實務能力的資訊專業人才。</li>
-                    </ul>
-                </div>
-
+            <div class="card">
+                <h3>中期目標 (升學準備)</h3>
+                <p>1. 準備統測或多元入學，目標考取理想的科技大學資訊相關科系。<br>
+                   2. 累積更多競賽經驗（如資安、企劃或閱讀競賽），豐富學習歷程檔案。<br>
+                   3. 強化英文能力，以應對未來的資訊技術文獻閱讀。</p>
+            </div>
+            <div class="card">
+                <h3>長期目標 (未來展望)</h3>
+                <p>1. 在大學階段深入鑽研資訊安全或資料分析領域。<br>
+                   2. 積極爭取企業實習機會，將所學與實務接軌。<br>
+                   3. 成為一位具備解決問題能力且充滿熱忱的資訊專業人才。</p>
             </div>
         </div>
+    </section>
 
-        <div class="footer-note">
-            新北市立三重商工 資料處理科
+    <!-- 作品集與經歷 -->
+    <section id="portfolio">
+        <h2>作品集與經歷</h2>
+        <p style="text-align: center; margin-bottom: 30px;">（以下為我高中階段的競賽表現、證照與校內外經歷）</p>
+        <div class="grid-container">
+            <div class="card">
+                <h3>🏆 榮譽與競賽獎項</h3>
+                <ul>
+                    <li>高一書法寫字第一名</li>
+                    <li>資安女傑思 - 佳作</li>
+                    <li>參加閱讀心得競賽</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📜 專業技能與檢定</h3>
+                <ul>
+                    <li>會資人工記帳丙級證照</li>
+                    <li>資料處理與應用基礎技能</li>
+                    <!-- 可在此繼續補充您的其他證照 -->
+                </ul>
+            </div>
+            <div class="card">
+                <h3>👥 幹部與活動經歷</h3>
+                <ul>
+                    <li>高一上學期 - 副班長</li>
+                    <li>校內服務隊成員</li>
+                    <li>資料處理科科聯會人員</li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 陳鈺諠 (Chen Yu-Hsuan) Personal Website. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
