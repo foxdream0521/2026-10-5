@@ -7,13 +7,13 @@
     <style>
         /* 灰藍白配色變數 */
         :root {
-            --bg-light-gray: #f4f7f6;   /* 網頁整體淺灰背景 */
-            --box-white: #ffffff;       /* 區塊純白背景 */
-            --primary-blue: #2980b9;    /* 主題深藍色 */
-            --light-blue: #ebf5fb;      /* 標題/卡片淺藍底色 */
-            --text-dark: #333333;       /* 主要文字深灰色 */
-            --text-gray: #666666;       /* 次要文字中灰色 */
-            --border-color: #dcdde1;    /* 淺灰邊框 */
+            --bg-light-gray: #f4f7f6;
+            --box-white: #ffffff;
+            --primary-blue: #2980b9;
+            --light-blue: #ebf5fb;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --border-color: #dcdde1;
         }
 
         * {
@@ -24,7 +24,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* 平滑滾動 */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -34,7 +34,7 @@
             padding-top: 70px;
         }
 
-        /* 浮動式導覽列 (白底灰藍字) */
+        /* 浮動式導覽列 */
         nav {
             position: fixed;
             top: 0;
@@ -52,8 +52,8 @@
         nav a {
             color: var(--text-gray);
             text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.1rem;
+            margin: 0 15px;
+            font-size: 1.05rem;
             font-weight: bold;
             transition: color 0.3s;
         }
@@ -62,24 +62,22 @@
             color: var(--primary-blue);
         }
 
-        /* 頁面主要容器 */
         .container {
             max-width: 1000px;
             margin: 40px auto;
             padding: 20px;
         }
 
-        /* 區塊大標題 */
         .main-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: bold;
             color: var(--primary-blue);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             letter-spacing: 2px;
         }
 
-        /* ＝＝＝ 第一區塊：雙欄個人簡歷 (依您提供的圖片排版) ＝＝＝ */
+        /* 第一區塊：雙欄個人簡歷 */
         .resume-grid {
             display: flex;
             gap: 30px;
@@ -91,7 +89,7 @@
             flex: 1;
             background-color: var(--box-white);
             border: 1px solid var(--border-color);
-            border-top: 5px solid var(--primary-blue); /* 頂部藍色飾條 */
+            border-top: 5px solid var(--primary-blue);
             box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             padding: 30px 20px;
             border-radius: 8px;
@@ -113,24 +111,19 @@
 
         .name-box {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: bold;
             color: var(--text-dark);
             margin-bottom: 15px;
             padding-bottom: 15px;
             border-bottom: 1px dashed var(--border-color);
             letter-spacing: 5px;
-            text-indent: 5px;
         }
 
         .info-list {
             list-style: none;
             margin-bottom: 25px;
             color: var(--text-gray);
-        }
-
-        .info-list li {
-            margin-bottom: 8px;
         }
 
         .right-column {
@@ -140,11 +133,10 @@
             gap: 25px;
         }
 
-        /* 小區塊標題 (灰藍底色) */
         .section-subtitle {
             background-color: var(--light-blue);
             color: var(--primary-blue);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             padding: 8px 15px;
             border-left: 5px solid var(--primary-blue);
@@ -173,49 +165,12 @@
             top: 4px;
         }
 
-        /* 醒目提示字體 */
         .highlight {
             color: var(--primary-blue);
             font-weight: bold;
         }
 
-        /* ＝＝＝ 第二區塊：學習成果與心得 (新增的展示區) ＝＝＝ */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .portfolio-card {
-            background-color: var(--box-white);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(41, 128, 185, 0.15);
-            border-color: var(--primary-blue);
-        }
-
-        .portfolio-card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            border-bottom: 1px solid var(--light-blue);
-            padding-bottom: 10px;
-        }
-
-        .portfolio-card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
+        /* 標籤樣式 */
         .portfolio-tag {
             display: inline-block;
             background-color: var(--light-blue);
@@ -224,6 +179,87 @@
             border-radius: 15px;
             font-size: 0.8rem;
             font-weight: bold;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* 第二區塊：圖文展示區 (新增) */
+        .showcase-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .showcase-row {
+            display: flex;
+            background-color: var(--box-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .showcase-row:hover {
+            box-shadow: 0 8px 20px rgba(41, 128, 185, 0.1);
+            border-color: var(--primary-blue);
+        }
+
+        .showcase-content {
+            flex: 1.2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .showcase-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .showcase-content p {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* 圖片佔位區塊 */
+        .showcase-gallery {
+            flex: 1;
+            background-color: var(--light-blue);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 兩格圖片並排 */
+            gap: 15px;
+            align-items: center;
+        }
+
+        .img-placeholder {
+            background-color: #ccd1d9;
+            width: 100%;
+            height: 180px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 0.9rem;
+            border: 2px dashed #aab2bd;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* 讓部分相簿只有一張大圖 */
+        .single-img {
+            grid-template-columns: 1fr;
+        }
+        .single-img .img-placeholder {
+            height: 250px;
         }
 
         /* 頁尾 */
@@ -238,16 +274,10 @@
 
         /* 手機版響應式 */
         @media (max-width: 768px) {
-            .resume-grid {
-                flex-direction: column;
-            }
-            .left-column, .right-column {
-                width: 100%;
-            }
-            nav a {
-                margin: 0 10px;
-                font-size: 1rem;
-            }
+            .resume-grid { flex-direction: column; }
+            .left-column, .right-column { width: 100%; }
+            nav a { margin: 0 10px; font-size: 0.95rem; }
+            .showcase-row { flex-direction: column; } /* 手機版圖文會自動上下疊加 */
         }
     </style>
 </head>
@@ -257,17 +287,17 @@
     <nav>
         <a href="#resume">個人簡歷</a>
         <a href="#study-plan">讀書計畫</a>
-        <a href="#outcomes">學習成果與心得</a>
+        <a href="#activity-gallery">活動紀錄與圖文</a>
     </nav>
 
     <div class="container">
         
-        <!-- ================= 個人簡歷 (參考原圖雙欄排版) ================= -->
+        <!-- ================= 區塊 1：個人簡歷 ================= -->
         <div id="resume" style="padding-top: 20px;">
             <h1 class="main-title">關於我</h1>
             <div class="resume-grid">
                 
-                <!-- 左欄：基本資料與證照 -->
+                <!-- 左欄 -->
                 <div class="left-column">
                     <div class="profile-pic">
                         (大頭貼)
@@ -286,11 +316,10 @@
                     <div class="section-subtitle">檢定證照</div>
                     <ul class="bullet-list">
                         <li>會資人工記帳：<span class="highlight">丙級</span></li>
-                        <li>(點此新增其他電腦或商管證照)</li>
                     </ul>
                 </div>
 
-                <!-- 右欄：優良表現與計畫 -->
+                <!-- 右欄 -->
                 <div class="right-column">
                     <div>
                         <div class="section-subtitle">特殊優良表現</div>
@@ -304,50 +333,71 @@
                     <div id="study-plan" style="padding-top: 10px;">
                         <div class="section-subtitle">讀書計畫</div>
                         <ul class="bullet-list">
-                            <li><span class="highlight">短期目標</span>：<br>專注於資料處理科專業科目，提升軟體應用能力並持續考取相關證照，打好資訊基礎。</li>
-                            <li><span class="highlight">中期目標</span>：<br>在兼顧課業與服務隊、科聯會活動的同時，積極參與多元競賽（如資安競賽、專題實作），豐富學習歷程檔案。</li>
-                            <li><span class="highlight">長期目標</span>：<br>為統測做好萬全準備，目標錄取理想的科技大學資訊相關科系，並培養獨立解決問題的能力。</li>
+                            <li><span class="highlight">短期目標</span>：專注於資料處理科專業科目，提升軟體應用能力並持續考取相關證照，打好資訊基礎。</li>
+                            <li><span class="highlight">中期目標</span>：在兼顧課業與服務隊、科聯會活動的同時，積極參與多元競賽（如資安競賽、專題實作），豐富學習歷程檔案。</li>
+                            <li><span class="highlight">長期目標</span>：為統測做好萬全準備，目標錄取理想的科技大學資訊相關科系，並培養獨立解決問題的能力。</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ================= 學習成果與心得展示區 (新增) ================= -->
-        <div id="outcomes" style="padding-top: 40px;">
-            <h1 class="main-title">學習成果與心得</h1>
+        <!-- ================= 區塊 2：活動紀錄與圖文 (新增圖文排版) ================= -->
+        <div id="activity-gallery" style="padding-top: 40px;">
+            <h1 class="main-title">活動紀錄與心得分享</h1>
             
-            <div class="portfolio-grid">
-                <!-- 成果卡片 1 -->
-                <div class="portfolio-card">
-                    <h3>📝 閱讀心得競賽參賽反思</h3>
-                    <p>透過這次的閱讀心得競賽，我不僅提升了文字表達能力，更學會了如何從不同角度切入分析一本書的核心價值。在撰寫過程中，我深刻體會到資料統整與邏輯架構的重要性。</p>
-                    <span class="portfolio-tag">閱讀心得</span>
-                    <span class="portfolio-tag">表達能力</span>
-                </div>
-
-                <!-- 成果卡片 2 -->
-                <div class="portfolio-card">
-                    <h3>💻 資安女傑思 - 參賽歷程</h3>
-                    <p>獲得佳作是對我的一大肯定。在準備比賽的過程中，我接觸到了許多課本以外的資訊安全實務知識。從中我也體認到團隊合作與臨場解題應變能力的重要性。</p>
-                    <span class="portfolio-tag">資訊安全</span>
-                    <span class="portfolio-tag">團隊合作</span>
-                </div>
-
-                <!-- 成果卡片 3 -->
-                <div class="portfolio-card">
-                    <h3>📊 會資人工記帳丙級 - 備考心得</h3>
-                    <p>考取這張證照讓我對商業會計流程有了初步的認識。雖然練習分錄與過帳的過程很繁瑣，但也培養了我對於數字的細心與耐心，對未來結合資料處理專業很有幫助。</p>
-                    <span class="portfolio-tag">專業證照</span>
-                    <span class="portfolio-tag">會計知識</span>
-                </div>
+            <div class="showcase-container">
                 
-                <!-- 成果卡片 4 (預留給未來擴充) -->
-                <div class="portfolio-card">
-                    <h3>💡 專題實作 / 未來作品</h3>
-                    <p>（此區塊預留給高二、高三的專題實作成果。未來可以放上自己設計的網頁、寫的程式碼小專案，或是科聯會活動企劃書的執行心得。）</p>
-                    <span class="portfolio-tag">專案實作</span>
+                <!-- 專案 1：資安女傑思 (左文字、右兩張小圖) -->
+                <div class="showcase-row">
+                    <div class="showcase-content">
+                        <h3>💻 資安女傑思 - 參賽歷程與佳作肯定</h3>
+                        <p>獲得佳作是對我的一大肯定！在準備比賽的過程中，我和團隊成員一起摸索許多課本以外的資訊安全實務知識。從最初的面對未知感到挫折，到最後成功解題，這段歷程讓我體認到團隊合作與臨場應變能力的重要性。不僅開闊了眼界，也讓我對資料處理與資安防護產生更濃厚的興趣。</p>
+                        <div>
+                            <span class="portfolio-tag">資訊安全</span>
+                            <span class="portfolio-tag">團隊合作</span>
+                            <span class="portfolio-tag">解題邏輯</span>
+                        </div>
+                    </div>
+                    <div class="showcase-gallery">
+                        <div class="img-placeholder">(之後放入參賽照片 1)</div>
+                        <div class="img-placeholder">(之後放入參賽照片 2)</div>
+                    </div>
                 </div>
+
+                <!-- 專案 2：書法寫字比賽 (左文字、右一張大圖) -->
+                <div class="showcase-row">
+                    <div class="showcase-content">
+                        <h3>✍️ 高一書法寫字比賽 - 第一名</h3>
+                        <p>在數位時代，靜下心來寫書法是我培養專注力的方式。這次榮獲第一名，不僅是對我硬筆/毛筆字跡的肯定，更是對我耐心的回饋。寫書法的過程讓我學會如何在繁重的課業中找到平靜的步調，這份專注力也間接幫助了我在準備證照考試時能更細心。</p>
+                        <div>
+                            <span class="portfolio-tag">專注力培養</span>
+                            <span class="portfolio-tag">靜心修練</span>
+                        </div>
+                    </div>
+                    <!-- 加入 single-img 類別讓右邊變成一張大圖的版型 -->
+                    <div class="showcase-gallery single-img">
+                        <div class="img-placeholder">(之後放入書法作品或頒獎照片)</div>
+                    </div>
+                </div>
+
+                <!-- 專案 3：科聯會/服務隊 (未來可擴充) -->
+                <div class="showcase-row">
+                    <div class="showcase-content">
+                        <h3>👥 科聯會與服務隊 - 籌辦活動紀實</h3>
+                        <p>擔任副班長以及參與科聯會、服務隊的過程中，我學習到如何協助老師、凝聚同學向心力，並參與了活動的企劃與執行。這些經驗讓我學會溝通協調，也發現自己非常享受與大家共同完成一個目標的成就感。</p>
+                        <div>
+                            <span class="portfolio-tag">活動企劃</span>
+                            <span class="portfolio-tag">溝通協調</span>
+                            <span class="portfolio-tag">領導力</span>
+                        </div>
+                    </div>
+                    <div class="showcase-gallery">
+                        <div class="img-placeholder">(之後放入活動合照 1)</div>
+                        <div class="img-placeholder">(之後放入活動合照 2)</div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
